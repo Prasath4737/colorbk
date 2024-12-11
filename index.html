@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 1: Mountains and Trees</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    svg {
+      width: 80%;
+      max-width: 800px;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .color-picker {
+      margin: 10px;
+    }
+    .nav-buttons {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Page 1: Mountains and Trees</h1>
+  <p>Select a color and click on the areas to fill!</p>
+
+  <div class="color-picker">
+    <label for="color">Choose a color:</label>
+    <input type="color" id="color" value="#ff0000">
+  </div>
+
+  <svg id="coloringBook" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+    <!-- Mountains -->
+    <path d="M100 600 L300 400 L500 600 Z" stroke="black" fill="white" />
+    <path d="M400 600 L600 300 L750 600 Z" stroke="black" fill="white" />
+    <!-- Trees -->
+    <rect x="200" y="500" width="20" height="100" stroke="black" fill="white" />
+    <circle cx="210" cy="500" r="30" stroke="black" fill="white" />
+    <rect x="600" y="500" width="20" height="100" stroke="black" fill="white" />
+    <circle cx="610" cy="500" r="30" stroke="black" fill="white" />
+  </svg>
+
+  <div class="nav-buttons">
+    <button onclick="location.href='page2.html'">Next Page</button>
+  </div>
+
+  <script>
+    const svg = document.getElementById('coloringBook');
+    const colorPicker = document.getElementById('color');
+
+    svg.addEventListener('click', (event) => {
+      if (['path', 'circle', 'rect'].includes(event.target.tagName)) {
+        event.target.setAttribute('fill', colorPicker.value);
+      }
+    });
+  </script>
+</body>
+</html>
